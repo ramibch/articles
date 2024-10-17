@@ -2,3 +2,6 @@
 
 
 Dies ist nur ein Dummy-Artikel.
+
+
+![Test file](image.png)
