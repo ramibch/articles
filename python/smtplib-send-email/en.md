@@ -1,4 +1,4 @@
-
+# How to send an Email message with Python using smtplib
 
 In Python, we can use the `smtplib` standard module to create a SMTP session that can be used to send an email.
 

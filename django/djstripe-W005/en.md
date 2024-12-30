@@ -1,4 +1,4 @@
-
+# How to solve the check djstripe.W005 is not populated in the db
 
 
 You may have installed `dj-stripe`, and set up all the configuration in your Django setting module. But there is a warning check that irritates you. 

@@ -1,3 +1,4 @@
+# How to print text on an image using Python
 
 In this small article I will show how you can get an image with text (right on the next image) from a template one (left).
 
