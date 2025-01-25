@@ -1,0 +1,63 @@
+% Autor: Rami Boutassghount
+% Website: https://ramiboutas.com/
+% Linkedin: https://www.linkedin.com/in/ramiboutas/
+% Twitter: https://twitter.com/ramiboutas
+% Telegram: https://t.me/ramiboutas
+
+\documentclass[tikz, convert={density=300}]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows}
+
+\tikzstyle{startstop} = [rectangle, rounded corners, 
+minimum width=3cm, 
+minimum height=1cm,
+text centered, 
+draw=black, 
+fill=red!30]
+
+\tikzstyle{io} = [trapezium, 
+trapezium stretches=true, % A later addition
+trapezium left angle=70, 
+trapezium right angle=110, 
+minimum width=3cm, 
+minimum height=1cm, text centered, 
+draw=black, fill=blue!30]
+
+\tikzstyle{process} = [rectangle, 
+minimum width=3cm, 
+minimum height=1cm, 
+text centered, 
+text width=3cm, 
+draw=black, 
+fill=orange!30]
+
+\tikzstyle{decision} = [diamond, 
+minimum width=3cm, 
+minimum height=1cm, 
+text centered, 
+draw=black, 
+fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\begin{document}
+
+\begin{tikzpicture}[node distance=2cm]
+
+\node (start) [startstop] {Inicio};
+\node (pro1) [process, below of=start] {Inicialización};
+\node (pro2) [process, below of=pro1] {Proceso a repetir};
+\node (dec1) [decision, below of=pro2, yshift=-1cm, text width=2cm] {¿Alcanzado número de repeticion?};
+\node (pro3) [process, below of=dec1,  yshift=-1cm] {Finalización};
+\node (stop) [startstop, below of=pro3] {Stop};
+
+\draw [arrow] (start) -- (pro1);
+\draw [arrow] (pro1) -- (pro2);
+\draw [arrow] (pro2) -- (dec1);
+\draw [arrow] (dec1) -- node[anchor=east] {Sí} (pro3);
+% \draw [arrow] (dec1) |- node[anchor=east, xshift=3cm] {No} (pro2);
+\draw [arrow] (dec1) --++ (3,0) |- node[pos=0.25, anchor=east] {No} (pro2);
+
+\draw [arrow] (pro3) -- (stop);
+
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,41 @@
+% Autor: Rami Boutassghount
+% Website: https://ramiboutas.com/
+% Linkedin: https://www.linkedin.com/in/ramiboutas/
+% Twitter: https://twitter.com/ramiboutas
+% Telegram: https://t.me/ramiboutas
+
+\documentclass[tikz, convert={density=300}]{standalone}
+\usepackage{pgfplots}
+\tikzstyle{load}=[ultra thick,-latex]
+\tikzstyle{stress}=[-latex]
+\tikzstyle{dim}=[latex-latex]
+\tikzstyle{axis}=[-latex,black!55]
+
+\begin{document}
+	\begin{tikzpicture}[auto,scale=2.5]
+	\coordinate (O) at (0,0);
+	\coordinate (Ox) at (2,0);
+	\coordinate (Oz) at (0,2);
+
+	\coordinate (S) at (0.9,0.7);  % (y,z)
+
+	\def\vz{1.2}
+	\def\wx{0.7}
+	\def\wz{0.9}
+	
+	\draw[axis] (O) -- ++(Ox) node[right] {$x$};
+	\draw[axis] (O) -- ++(Oz) node[above right] {$z$};
+
+	\draw[load, red] (O) -- ++(0,\vz) node[above,xshift=-8mm,yshift=-3mm] {$\vec{v} = 1.2 \vec{k}$};
+	\draw[load, blue] (O) -- ++(\wx,\wz) node[above,xshift=7mm] {$\vec{w} = 0.7 \vec{i} + 0.9 \vec{k}$};
+	\draw[black] (0.307,0.3947) arc (52.1:90:0.5) node[above,midway]{$\theta$};
+
+	\draw[dashed, black] (0,\wz) -- (\wx,\wz) ;
+	\draw[dashed, black] (\wx,0) -- (\wx,\wz) ;
+	
+	\draw [decorate,decoration={brace,amplitude=10pt},xshift=-1pt,yshift=0pt] (0,0) -- (0,\wz) node [black,midway,xshift=-4mm,yshift=0mm]{$0.9$};
+
+	\draw [decorate,decoration={brace,amplitude=10pt},xshift=0pt,yshift=-1pt] (\wx,0) --(0,0) node [black,midway,xshift=0mm,yshift=-4mm]{$0.7$};
+	
+	\end{tikzpicture}
+\end{document}

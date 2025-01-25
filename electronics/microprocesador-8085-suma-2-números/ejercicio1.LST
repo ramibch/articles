@@ -1,0 +1,53 @@
+1000            ORG 1000H 
+1000 3E04       MVI A,04H 	
+1002 320012     STA 1200H 	
+1005 3E08       MVI A,08H 	
+1007 320112     STA 1201H 	
+                
+                
+100A 90         SUB B	
+100B 57         MOV D,A
+100C 14         INR D
+100D 3A0012     LDA 1200H
+                
+1010 2E00       MVI L,00H
+1012 2600       MVI H,00H
+1014 3A0112     LDA 1201H
+                
+1017 5F         MOV E,A
+                
+1018            BUCLE:
+                
+1018 7D         MOV A,L
+1019 83         ADD E
+101A 6F         MOV L,A
+101B D21F10     JNC NOACARREO
+101E 24         	INR H
+101F            NOACARREO:
+101F 1D         DCR E
+1020 15         DCR D
+1021 7A         MOV A,D
+1022 FE00       CPI 00H
+1024 C21810     JNZ BUCLE 
+                
+1027 7C         MOV A,H
+1028 84         ADD H
+1029 67         MOV H,A
+102A 7D         MOV A,L
+102B 85         ADD L
+102C 6F         MOV L,A
+102D D23110     JNC NOACAR
+1030 24         INR H
+1031            NOACAR:
+                
+1031 220212     SHLD 1202H
+                
+1034 76         HLT 
+1035            END
+----------------------------------------
+TABLA DE SIMBOLOS
+----------------------------------------
+BUCLE	1018
+NOACARREO	101F
+NOACAR	1031
+

@@ -1,0 +1,24 @@
+; Ejercicio 3 (Práctica 1)
+; Autor: Rami Boutassghount
+
+ORG 1000H
+MVI A,06H
+STA 1200H
+MOV B,A
+MVI A,14H
+MOV D,A
+MVI A,00H
+MOV D,A
+LDA 1201H
+MOV D,A
+
+BUCLE:
+MOV A,E
+SUB B
+MOV E,A
+CMP B
+JNC BUCLE
+MOV A,E
+STA 1202H
+HLT 
+END

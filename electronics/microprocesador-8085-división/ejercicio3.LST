@@ -1,0 +1,26 @@
+1000            ORG 1000H
+1000 3E06       MVI A,06H
+1002 320012     STA 1200H
+1005 47         MOV B,A
+1006 3E14       MVI A,14H
+1008 57         MOV D,A
+1009 3E00       MVI A,00H
+100B 57         MOV D,A
+100C 3A0112     LDA 1201H
+100F 57         MOV D,A
+                
+1010            BUCLE:
+1010 7B         MOV A,E
+1011 90         SUB B
+1012 5F         MOV E,A
+1013 B8         CMP B
+1014 D21010     JNC BUCLE
+1017 7B         MOV A,E
+1018 320212     STA 1202H
+101B 76         HLT 
+101C            END
+----------------------------------------
+TABLA DE SIMBOLOS
+----------------------------------------
+BUCLE	1010
+

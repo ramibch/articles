@@ -1,0 +1,43 @@
+1000            ORG 1000H
+1000 3E04       MVI A,04H
+1002 320012     STA 1200h 
+1005 3E08       MVI A,08H 
+1007 320112     STA 1201H
+                
+100A 3A0012     LDA 1200H
+100D 47         MOV B,A 
+100E 3A0112     LDA 1201H	
+1011 4F         MOV C,A 
+1012 51         MOV D,C
+1013 3E00       MVI A,00H 
+1015 320212     STA 1202H 	
+1018 320312     STA 1203H 
+                	
+101B            SUMA:
+101B 7D         MOV A,L
+101C 80         ADD B	
+                
+101D D22110     JNC NOACARREO
+                	
+1020 24         INR H	
+                	
+1021            NOACARREO:	
+                
+1021 6F         MOV L,A
+1022 15         DCR D	
+                
+1023 C21B10     JNZ  SUMA
+                
+1026 7D         MOV A,L
+1027 320212     STA 1202H	
+102A 7C         MOV A,H	
+102B 320312     STA 1203H	
+                
+102E 76         HLT		
+102F            END 		
+----------------------------------------
+TABLA DE SIMBOLOS
+----------------------------------------
+SUMA	101B
+NOACARREO	1021
+
