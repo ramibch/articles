@@ -98,6 +98,5 @@ With everything wrote and set up, just run the script `python script.py` and an 
 
 If you want to test this out with the example provided, download the following files needed:
 
-- [⬇️ script.py](script.py)
 - [⬇️ Font OpenSansEmoji.ttf](OpenSansEmoji.ttf)
 - [⬇️ Template image](template.jpeg)
